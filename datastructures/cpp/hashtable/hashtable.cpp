@@ -1,27 +1,30 @@
 //
 // Created by carter on 6/22/25.
 //
-
+#include <cstdlib>
+#include <iostream>
 #include "hashtable.h"
 
 void HashTable::printTable() const {
   for (int i = 0; i < TABLE_SIZE; i++) {
-    std::cout << "Table[" << i << "] = " << std::endl;
+    std::cout << "Table[" << i << "]" << '\n';
 
     Node *curr = table[i];
     while (curr != nullptr) {
-      std::cout << curr->key << " -> " << curr->value << std::endl;
+      std::cout << curr->key << " to " << curr->value << '\n';
       curr = curr->next;
     }
-    std::cout << std::endl;
+    std::cout << '\n';
   }
 }
 
 int HashTable::hash(const std::string &key) const {
   int hash = 0;
-  for (int i = 0; i < key.length(); i++) {
-    hash = (hash + key[i] * 23) % TABLE_SIZE;
+  for (std::size_t i = 0; i < key.length(); i++) {
+    hash += key[i];
   }
+  hash = (hash*23) % TABLE_SIZE;
+
   return hash;
 }
 

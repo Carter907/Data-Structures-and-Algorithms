@@ -18,7 +18,6 @@ struct Node {
         this->next = nullptr;
     }
 
-
 };
 
 #endif //NODE_H

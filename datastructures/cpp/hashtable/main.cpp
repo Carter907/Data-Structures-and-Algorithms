@@ -14,5 +14,6 @@ int main() {
   ht.set("wanky", 9);
 
   ht.printTable();
+
   return 0;
 }
